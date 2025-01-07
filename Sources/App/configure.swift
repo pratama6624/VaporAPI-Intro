@@ -18,7 +18,7 @@ public func configure(_ app: Application) async throws {
     ), as: .psql)
 
     app.migrations.add(CreateSongs())
-//    try await app.autoMigrate()
+    try await app.autoMigrate()
     // register routes
     try routes(app)
 }

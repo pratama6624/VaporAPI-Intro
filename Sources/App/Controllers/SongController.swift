@@ -14,16 +14,14 @@ struct SongController: RouteCollection {
         
         songs.get(use: self.index)
         songs.post(use: self.create)
+        songs.group(":songID") { song in
+            song.delete(use: self.delete)
+        }
     }
     
-//    @Sendable
-//    func index(req: Request) async throws -> [SongDTO] {
-//        try await Song.query(on: req.db).all().map { $0.toSongDTO()}
-//    }
-    
     @Sendable
-    func index(req: Request) async throws -> String {
-        return "Hello, this is getting songs"
+    func index(req: Request) async throws -> [SongDTO] {
+        try await Song.query(on: req.db).all().map { $0.toSongDTO()}
     }
     
     @Sendable
