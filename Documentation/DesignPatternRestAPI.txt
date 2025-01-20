@@ -1,0 +1,41 @@
+* Basic Rest API (Vapor Framework)
+
+Note : Struktur folder dibawah berlaku untuk RestAPI dengan Vapor.
+
+1. Aliran data :
+    *
+    *
+    *
+
+2. Struktur Folder
+    * Source/App/Controller :
+        - Menangani logika dan endpoint API.
+        - Menerima permintaan dari client seperti POST, GET, PUT, DELETE lalu merespon kembali ke client.
+        - Melakukan filter data sensitif yang akan dikembalikan ke client.
+        - Menjadi penghubung antara client dengan Services dan Models.
+        - Mengembalikas response ke client berupa JSON, XML atau yang lainya.
+        
+    * Source/App/DTOs :
+        - Tempat dimana standarisasi format request dan response antara client dan server.
+        - Representasi dari data yang akan dikirim kembali ke client.
+        - Filter data sensitif (Menyembunyikan data yang tidak boleh dikirim ke client).
+        
+    * Source/App/Migrations :
+        - Membuat database berikut dengan tabel-tabel yang dibutuhkan aplikasi.
+        - Mendifinisikan kolom (field), termasuk tipe data, panjang dan atribut lainya.
+        - Melakukan CRUD pada database.
+        - Version control pada database, merip dengan cara kerja git.
+        - Standarisasi atau memastikan database tetap konsistem di dalam aplikasi ini.
+        
+    * Source/App/Models :
+        - Merepresentasikan model data dari database / sumber data ke dalam aplikasi.
+        - Representasi keseluruhan data dari database dan tidak melihat apakah data atau entitas tertentu akan dikirim ke client atau tidak.
+        
+    * Source/App/Routes :
+        - Melakukan konfigurasi seluruh akses rute API.
+        - Menghubungkan URL endpoint ke fungsi Contoller.
+        
+    * Source/App/Service :
+        - Mengatur logika bisnis dari aplikasi.
+        - Mengambil data dari database lalu merubahnya ke dalam bentuk Model.
+
