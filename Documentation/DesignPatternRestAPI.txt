@@ -3,9 +3,17 @@
 Note : Struktur folder dibawah berlaku untuk RestAPI dengan Vapor.
 
 1. Aliran data :
-    *
-    *
-    *
+    * Request Client (Permintaan masuk dari client berupa Protocol HTTP (GET, POST, PUT, & DELETE) dengan endpoint).
+    * Routing (Memetakan jalur dengan mencocokan ke Controller).
+    * Controllers (Menerima jalur routing dan akan memanggil Service, Transisi dari Model ke DTO).
+    * Services (Melakukan interaksi dengan Models untuk meminta data yang diinginkan oleh Controller, Transisi dari Model ke DTO)
+    * Models (Berinteraksi dengan sumber data seperti database atau API lain).
+    * DTO (Meerubah bentuk data dari Model ke DTO untuk melindungi data sensitif dan Menyusun model response ke client).
+    * Response API (Berupa JSON, XML atau yang lainya).
+    
+    NOTE : Transisi dari Model ke DTO bisa terjadi di Controller atau Service (Sesuai kebutuhan aplikasi).
+    
+    Proses : Database -> Models -> Service -> DTO -> Controller -> Routing -> (Response API) / <- (Request) -> Client
 
 2. Struktur Folder
     * Source/App/Controller :
